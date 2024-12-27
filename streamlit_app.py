@@ -12,7 +12,7 @@ from sklearn.metrics import mean_absolute_error,r2_score,mean_squared_error
 @st.cache_resource
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("fitness-tracker-1a82b-f40429106f4b.json")  
+        cred = credentials.Certificate("fitness-tracker-1a82b-d19f8a9030c8.json")  
         firebase_admin.initialize_app(cred)
 init_firebase()
 db = firestore.client()
