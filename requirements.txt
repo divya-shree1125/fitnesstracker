@@ -5,3 +5,4 @@ firebase-admin
 scikit-learn
 seaborn
 matplotlib
+google-cloud-firestore
