@@ -15,7 +15,7 @@ from sklearn.metrics import confusion_matrix
 @st.cache_resource
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate(FIREBASE_CREDENTIALS)  
+        cred = credentials.Certificate("fitness-tracker-1a82b-972e2669a22f.json")  
         firebase_admin.initialize_app(cred)
 init_firebase()
 import logging
