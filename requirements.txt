@@ -8,3 +8,4 @@ matplotlib
 google-cloud-firestore
 dotenv
 os
+json
