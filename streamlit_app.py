@@ -7,8 +7,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error,r2_score,mean_squared_error
 from sklearn.metrics import confusion_matrix
-from dotenv import load_dotenv
 import os
+import jsonn
 firebase_credentials=json.loads(os.getenv("FIREBASE_CREDENTIALS"))
 
 # # Initialize Firebase Admin SDK
