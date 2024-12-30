@@ -6,6 +6,5 @@ scikit-learn
 seaborn
 matplotlib
 google-cloud-firestore
-dotenv
 os
 json
