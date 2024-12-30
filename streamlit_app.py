@@ -6,17 +6,48 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error,r2_score,mean_squared_error
+from sklearn.metrics import confusion_matrix
 
 
-# Initialize Firebase Admin SDK
+# # Initialize Firebase Admin SDK
 @st.cache_resource
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("fitness-tracker-1a82b-9c9fbe268ca8.json")  
+        cred = credentials.Certificate("fitness-tracker-1a82b-1dc42da4744e.json")  
         firebase_admin.initialize_app(cred)
 init_firebase()
-db = firestore.client()
+import logging
 
+logging.basicConfig(level=logging.DEBUG)
+logging.debug("Attempting to connect to Firestore...")
+try:
+    db = firestore.client()
+    logging.debug("Firestore connected successfully!")
+except Exception as e:
+    logging.error(f"Error connecting to Firestore: {e}")
+# db = firestore.client()
+
+def clean_data(df):
+    # *Data Cleaning*
+    # Remove duplicates
+    df = df.drop_duplicates()
+
+    # Fill missing values with appropriate defaults
+    df["calories_burned"] = df["calories_burned"].fillna(0)
+    df["weight_loss"] = df["weight_loss"].fillna(0)
+    df["calories_consumed"] = df["calories_consumed"].fillna(df["calories_consumed"].mean())
+
+    # Ensure numeric columns are of correct types
+    numeric_cols = ["age", "weight", "height", "session_duration", "total_steps", "calories_burned",
+                    "weight_loss", "calories_consumed"]
+    for col in numeric_cols:
+        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+
+    # Convert date column to datetime and sort
+    df["date"] = pd.to_datetime(df["date"], errors='coerce')
+    df = df.dropna(subset=["date"])  # Drop rows where date conversion failed
+    df = df.sort_values("date")
+    return df
 
 st.title(":rainbow[Fitness Tracker]")
 st.sidebar.title(":rainbow[My Fitness]")
@@ -67,8 +98,8 @@ elif menu == "Dashboard":
         user_data = [doc.to_dict() for doc in user_docs]
         
         if user_data:
-            df = pd.DataFrame(user_data)
-
+            df = clean_data(pd.DataFrame(user_data))
+     
 
         # Add new fitness record
         st.subheader(":orange[Add New Fitness Record]")
@@ -113,7 +144,7 @@ elif menu == "Dashboard":
             st.subheader(":orange[Calories Burned Trend]")
             df["date"] = pd.to_datetime(df["date"])
             df = df.sort_values("date")
-            st.line_chart(df.set_index("date")["calories_burned"])
+            st.area_chart(df.set_index("date")["calories_burned"],color=["#FF0000"])
 
 
     
@@ -131,7 +162,7 @@ elif menu == "Predict My Calories":
         data = [doc.to_dict() for doc in docs]
 
         if data:
-            df = pd.DataFrame(data)
+            df = clean_data(pd.DataFrame(data))
 
             # Prepare features and target
             x = df[["session_duration", "total_steps"]]
@@ -152,7 +183,9 @@ elif menu == "Predict My Calories":
                 st.write("mean absolute error : ",mae)
                 st.write("r2 score : ",r2)
                 st.write("mean square error : ",mse)
-            
+
+
+
             n = df[["calories_consumed", "calories_burned"]]
             m = df["weight_loss"]
 
@@ -171,7 +204,7 @@ elif menu == "Predict My Calories":
                 st.write("mean absolute error : ",mae)
                 st.write("r2 score : ",r2)
                 st.write("mean square error : ",mse)
-            
+               
 
 
             
@@ -186,7 +219,7 @@ elif menu == "Reports":
         docs = db.collection("fitness_data").where("user", "==", user).stream()
         datas = [doc.to_dict() for doc in docs]
         if datas:
-            df = pd.DataFrame(datas)
+            df = clean_data(pd.DataFrame(datas))
             a,b,g,c=st.columns(4)
             a.metric(label="total_steps", value=sum(df['total_steps']))
             b.metric(label="total_calories",value=sum(df['calories_burned']))
@@ -196,12 +229,12 @@ elif menu == "Reports":
             st.subheader("Calories Burned Trend")
             df["date"] = pd.to_datetime(df["date"])
             df = df.sort_values("date")
-            st.line_chart(df.set_index("date")["calories_burned"])
+            st.line_chart(df.set_index("date")["calories_burned"],color=["#FF0000"])
 
         
             st.bar_chart(df,
             x="date",
-            y=["calories_burned","total_steps"],
+            y=["calories_burned","calories_consumed"],
             color=["#FF0000", "#0000FF"],  
             )
         else:
@@ -222,7 +255,8 @@ elif menu == "Fitness record":
         user_data = [doc.to_dict() for doc in user_docs]
         
         if user_data:
-            df = pd.DataFrame(user_data)
+            df = clean_data(pd.DataFrame(user_data))
+            
             st.write("Your Fitness Records:", df)
             csv_data=df.to_csv(index=False)
             st.download_button(
