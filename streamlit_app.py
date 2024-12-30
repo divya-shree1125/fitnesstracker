@@ -15,7 +15,7 @@ firebase_credentials=json.loads(os.getenv("FIREBASE_CREDENTIALS"))
 @st.cache_resource
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("firebase_credentials")  
+        cred = credentials.Certificate(firebase_credentials)  
         firebase_admin.initialize_app(cred)
 init_firebase()
 import logging
