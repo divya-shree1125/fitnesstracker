@@ -7,9 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error,r2_score,mean_squared_error
 from sklearn.metrics import confusion_matrix
-# import os
-# import json
-# firebase_credentials=json.loads(os.getenv("FIREBASE_CREDENTIALS"))
+
 
 # # Initialize Firebase Admin SDK
 @st.cache_resource
@@ -71,8 +69,8 @@ if menu == "Sign Up":
 elif menu == "Log In":
     st.image("log.png",width=90,channels="RBG")
     st.subheader("Log In to Your Account")
-    email = st.text_input("Email")
-    password = st.text_input("Password", type="password")
+    email = st.text_input("Email  (please login using this email- divis@gmail.com)    to see progress")
+    password = st.text_input("Password (please login using this password-1127dn)   to see progress", type="password")
     if st.button("Log In"):
         # Check credentials
         doc = db.collection("users").document(email).get()
