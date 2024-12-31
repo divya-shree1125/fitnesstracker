@@ -1,9 +1,8 @@
 streamlit
 pandas
 numpy
-firebase-admin
 scikit-learn
 seaborn
 matplotlib
-google-cloud-firestore
+
 
