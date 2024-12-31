@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fitness-tracker-1a82b",
+  "private_key_id": "1cbfa99aac565e13c646fdb2f35942f3882fefdb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCjTzaWW9UbmXtS\nteDMp8gGr7kdQiTTlkN0TODiJs6LL1v2gxrBN9HpXnJaW3gWwnGmjlxWpxUKNxnJ\nQunKPoHIoU8hdtT4jVvcWXZXabrMZR1d7SsM/sHj6Tk/ZGdB6DsmcV90nWgy+rNj\n339hvh4pSkZ+eKSuiFu0eyq/UYZ3uB33mnozJMPuOZ30nSEenN820dr04c7Yfm8m\nhMtrn4UDGI/1kHYDCu6aUasA87oE/hsmHH1onAM0KkLox49QqHZbFLYnShj8bCEI\nDJcHGDY38WOCfA1fqwGr9x18WP6oQzowQhtrGl+qucRSxu/RlgH11WavC6YvygZ+\n95dpU7/dAgMBAAECggEADT99UahEevcx+m03vdJ0lxpFPZriiumbMkGUUrRMOB1Q\n7AgJsRf6puBbDXpzHQGMH7NXyU3HlqsOo/WSKq50b9aqKTBPKZSqGY+GWqQAm9ku\nDzMQtX6rMvZ2Bu75s26H8d/rmvW0AMK2r8jvN/oozzevzU2zKld0fQkq2BdgfbCo\nPWya0NlGdZVCDDuYK4ESSOUbhKtlhk9zykEfJlMfAE6t7fhTYVjfylIE+6MMKOdQ\nWxBkL9Fz6dbHhARozYqqGm4aWzzNLNQ+OboVKpGczNUrZAyhJQttai/nosVL4PWI\n0PxKAa5Iye/fH26aI19uUyKiIwo41v8XcToRrQVhYQKBgQDZQ2tb7Au6tXDOnxsV\ndqWqt44ZBy0Z4aqBISlKUNd2nEYg7odpqWhungMxCQQnm6i7ZGKiiZJCtm88nrCL\nQDUc0IxY5I8HdqXnWAtuBsPOaCQ6TpkYLIl0AvcMo8TQD1mkQLqwqVEjl46t/th9\n543/qr2Q5qiVvd+Gga0qWvPmDQKBgQDAbSrYYyqAF4A9EqRh8JE0jAGNgHQBXxP3\nkbNcunbni+Ps8A33ikez6Hoiu9ENqKeUwP3n3LhXAAtr2gs6MH9O/cZGIZ5fw2OC\n2xwbOPeTJrFwUAfI5DsHGAwi6ys0GTGJGimX4HgNSNmcdvN/X7Yd9BWhjbh3skZB\nqlkwc9odEQKBgBXiFYkvsErBBbi6C9dQmQUl8dkRgPhvY2YYOflzRRB8Uw/0Fo2M\n86jYn4er2dBHfGpLhSfL5YB0saWQckXEVNUvKEO32bQtvi4cDyKo6cX7dVKuIftu\nWPXnaozKXgN62FOT9Xnfw/1qwYNC/PlJfmL3Bpr2sJpMgpwgqZlvicttAoGAOQgi\nCsBZeF1+xJsh3WVPpCNa0nWf7Eghwt6MKo+Zbkcn5rG/cf6qAciFaoYAD+xMvun0\nVyQz/pUkzXJyoWx+TwsoGOEd74QZmk8WpXrc5eAx9vfBVulOFWwrLK5Gv8o3xErc\nyQbejhFpbdZTlQzpDTeqsZcvdUqBSDUU+idcHgECgYBojaHVbyFp1DbJofcEye3s\n1x6g9UUlurxtj2MBNqNYha0fAojqL0gtooFDy1MAEkjgVf5gAxabm05gFX14N+/r\n/bYWWyDqEW3Klzvh4Gx1/rF6tfeJ5aSEcSTyzRVuwxmgYiWoY5c1gLIeIwW532ib\n6kM1zXKxS+vnesvbQTmiSg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-lfwd0@fitness-tracker-1a82b.iam.gserviceaccount.com",
+  "client_id": "114264696848274768405",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-lfwd0%40fitness-tracker-1a82b.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
