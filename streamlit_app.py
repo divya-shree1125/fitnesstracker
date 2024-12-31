@@ -21,7 +21,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 logging.debug("Attempting to connect to Firestore...")
 try:
-    db = firestore.client()
+    db = firestore.client(credentials=cred,project="fitness-tracker-1a82b")
     logging.debug("Firestore connected successfully!")
 except Exception as e:
     logging.error(f"Error connecting to Firestore: {e}")
