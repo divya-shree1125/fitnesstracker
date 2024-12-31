@@ -6,16 +6,13 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error,r2_score,mean_squared_error
-import json
-import os
 
 
 # # Initialize Firebase Admin SDK
 @st.cache_resource
 def init_firebase():
     if not firebase_admin._apps:
-        firebase_credentials=json.loads(os.getenv('FIREBASE_CREDENTIALS')
-        cred = credentials.Certificate(firebase_credentials)  
+        cred = credentials.Certificate("fitness-tracker-1a82b-1cbfa99aac56.json")  
         firebase_admin.initialize_app(cred)
 init_firebase()
 import logging
