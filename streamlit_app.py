@@ -69,7 +69,7 @@ elif menu == "Log In":
     st.image("log.png",width=90,channels="RBG")
     st.subheader("Log In to Your Account")
     email = st.text_input("Email  (please login using this email- divis@gmail.com)    to see progress")
-    password = st.text_input("Password (please login using this password-1127dn)   to see progress", type="password")
+    password = st.text_input("Password  (please login using this password-1127dn)   to see progress", type="password")
     if st.button("Log In"):
         # Check credentials
         doc = db.collection("users").document(email).get()
@@ -175,7 +175,7 @@ elif menu == "Predict My Calories":
             if st.button("Predict calories"):
                 prediction = model.predict(x_test)
                 p=np.round(prediction,2)
-                st.success(f"You are estimated to burn  **{p}  calories** in your session!")
+                t.success(f"You are estimated to burn  **{p}  calories** in your session!")
                 mae=mean_absolute_error(y_test,prediction)
                 r2=r2_score(y_test,prediction)
                 mse=mean_squared_error(y_test,prediction)
